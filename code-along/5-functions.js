@@ -20,18 +20,32 @@ let quotes = [
 // Element.insertAdjacentHTML(position, text)
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
 
-window.addEventListener('DOMContentLoaded', function() {
+// window.addEventListener('DOMContentLoaded', function() {
+//   let outputElement = document.querySelector('.output')
+//   // outputElement.insertAdjacentHTML('beforeend', 'Hello!')
+
+
+//   // 1a loop through the movie quotes
+//   for (let i=0; i < quotes.length; i++) {
+//     let quote = quotes[i]
+//     console.log(quote)
+
+//  // 1b write them to the output (with Tailwind)
+//     let outputElement = document.querySelector('.output')
+//     outputElement.insertAdjacentHTML('beforeend', `<h1>${quote}</h1>`)
+//   } 
+// })
+
+function appendQuote(quote) {
   let outputElement = document.querySelector('.output')
-  // outputElement.insertAdjacentHTML('beforeend', 'Hello!')
+  outputElement.insertAdjacentHTML('beforeend',`<h1>${quote}</h1>`)
+}
 
-
-  // 1a loop through the movie quotes
-  for (let i=0; i < quotes.length; i++) {
+function pageLoaded() {
+  for (let i=0; i< quotes.length; i++){
     let quote = quotes[i]
-    console.log(quote)
+    appendQuote(quote)
+  }
+}
 
- // 1b write them to the output (with Tailwind)
-    let outputElement = document.querySelector('.output')
-    outputElement.insertAdjacentHTML('beforeend', `<h1>${quote}</h1>`)
-  } 
-})
+window.addEventListener('DOMContentLoaded',pageLoaded)
