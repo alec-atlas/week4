@@ -22,5 +22,16 @@ let quotes = [
 
 window.addEventListener('DOMContentLoaded', function() {
   let outputElement = document.querySelector('.output')
-  outputElement.insertAdjacentHTML('beforeend', 'Hello!')
+  // outputElement.insertAdjacentHTML('beforeend', 'Hello!')
+
+
+  // 1a loop through the movie quotes
+  for (let i=0; i < quotes.length; i++) {
+    let quote = quotes[i]
+    console.log(quote)
+
+ // 1b write them to the output (with Tailwind)
+    let outputElement = document.querySelector('.output')
+    outputElement.insertAdjacentHTML('beforeend', `<h1>${quote}</h1>`)
+  } 
 })
